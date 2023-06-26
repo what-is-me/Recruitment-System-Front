@@ -1,24 +1,33 @@
-# employee-front
+# 上海理工大学短学期——招聘系统::前端
+>Recruitment System Front
 
-## Project setup
+## 项目后端
+
+[上海理工大学短学期——招聘系统::后端](https://github.com/what-is-me/Recruitment-System-Backend)
+
+## 项目下载
+
 ```
+git clone https://github.com/what-is-me/Recruitment-System-Front.git
+cd Recruitment-System-Front
 npm install
 ```
 
-### Compiles and hot-reloads for development
+## 运行
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## 使用技术框架
 
-### Lints and fixes files
-```
-npm run lint
-```
+* vue3
+* vue-router
+* vuex
+* naive ui
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 特别鸣谢
+感谢[Jetbrains](https://www.jetbrains.com/?from=Recruitment-System-Front)提供的免费教育许可证
+
+<img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg" alt="JetBrains 徽标（主要） logo.">
+<img src="https://resources.jetbrains.com/storage/products/company/brand/logos/WebStorm.svg" alt="WebStorm logo.">

@@ -2,10 +2,14 @@
 import {defineComponent} from 'vue'
 import {getCompanyProfile, postCompanyProfile} from "@/requests/requests";
 import {setProperties} from "@/utils/utils";
+import {picture_upload_url} from "@/requests/service";
 
 export default defineComponent({
   name: "CompanyProfileEdit",
   methods: {
+    picture_upload_url() {
+      return picture_upload_url
+    },
     handleFinish({event}) {
       const {status, data} = JSON.parse((event?.currentTarget).response)
       if (status) {
@@ -76,7 +80,7 @@ export default defineComponent({
             </n-gi>
             <n-gi>
               <n-upload
-                  action="http://10.100.164.30:8089/api/v1/upload"
+                  :action="picture_upload_url()"
                   @finish="handleFinish"
               >
                 <n-button>上传图片</n-button>

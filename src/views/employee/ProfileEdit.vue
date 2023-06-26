@@ -47,19 +47,17 @@ export default defineComponent({
         if (msg === '未登录') this.$router.push('/');
         if (code === 200) {
           window.$message.success("修改成功");
-
         } else {
           window.$message.error("修改失败");
         }
       })
-    }
-    ,
+    },
     onCreateEdu() {
       return {
         school: "",
         major: "",
-        begin: 0,
-        end: 0,
+        begin: new Date(),
+        end: new Date(),
         detail: ""
       };
     }
@@ -69,8 +67,8 @@ export default defineComponent({
         company: "",
         vocation: "",
         job_name: "",
-        begin: 0,
-        end: 0,
+        begin: new Date(),
+        end: new Date(),
         detail: ""
       };
     }
@@ -80,8 +78,8 @@ export default defineComponent({
         name: "",
         role: "",
         url: "",
-        begin: 0,
-        end: 0,
+        begin: new Date(),
+        end: new Date(),
         detail: ""
       };
     }
@@ -105,38 +103,12 @@ export default defineComponent({
         address: "",
         birthday: 0,
         email: "",
-        edu_background: "",
-        edu: [
-          {
-            school: "",
-            major: "",
-            begin: 0,
-            end: 0,
-            detail: ""
-          }
-        ],
+        edu_background: "不限",
+        edu: [],
         website: "",
         self_introduce: "",
-        work_experiences: [
-          {
-            company: "",
-            vocation: "",
-            job_name: "",
-            begin: 0,
-            end: 0,
-            detail: ""
-          }
-        ],
-        project_experiences: [
-          {
-            name: "",
-            role: "",
-            url: "",
-            begin: 0,
-            end: 0,
-            detail: ""
-          },
-        ],
+        work_experiences: [],
+        project_experiences: [],
         star: [],
         want_price: 0
       }
@@ -146,15 +118,15 @@ export default defineComponent({
 </script>
 
 <template>
-  <n-layout style="position: relative;height: 100%;" :native-scrollbar="false">
-    <n-layout-header style="position: absolute;left: 0;top: 0;height: 10%;">
+  <n-layout style="position: relative;width:100%;height: 100%;" :native-scrollbar="false">
+    <n-layout-header style="position: absolute;left: 0;top: 0;height: 10%;margin-right: 5%">
       <n-page-header title="个人简历">
         <template #extra>
-          <n-button @click="submit">提交</n-button>
+          <n-button type="primary" @click="submit">保存</n-button>
         </template>
       </n-page-header>
     </n-layout-header>
-    <n-layout-content style="position: absolute;left: 0;top: 10%;height: 90%" :native-scrollbar="false">
+    <n-layout-content style="position: absolute;left: 0;top: 10%;height: 90%;width: 100%" :native-scrollbar="false">
       <n-form
           :label-width="80"
           :model="user"
@@ -173,7 +145,6 @@ export default defineComponent({
                   action="http://10.100.164.30:8089/api/v1/upload"
                   @finish="handleFinish"
               >
-
                 <n-button>上传图片</n-button>
               </n-upload>
             </n-gi>
@@ -213,12 +184,13 @@ export default defineComponent({
           </n-radio-group>
         </n-form-item>
         <n-form-item label="个人网站">
-          <n-input v-model:value="user.website" placeholder="输入头像图片网址"/>
+          <n-input v-model:value="user.website" placeholder="输入个人网站网址"/>
         </n-form-item>
         <n-form-item label="期望薪资">
           <n-input-number
               v-model:value="user.want_price"
               :default-value="8000"
+              :min="0"
               button-placement="both"
           >
             <template #prefix>

@@ -17,6 +17,9 @@ export default defineComponent({
         const {data} = res.data;
         setProperties(this.job, data);
       })
+    },
+    pushTo(path) {
+      this.$router.push(path)
     }
   },
   data() {
@@ -33,12 +36,12 @@ export default defineComponent({
         price_max: 0
       }
     }
-  }
+  },
 })
 </script>
 
 <template>
-  <n-thing>
+  <n-thing @click="pushTo(`/employee/job/${job.jid}`)">
     <template #header>
       {{ job.name }}
     </template>
@@ -79,7 +82,6 @@ export default defineComponent({
       </svg>
     </n-icon>
     {{ job.company_id }}
-    <n-p v-for="passage in job.description.split('\n')" :key="passage">{{ passage }}</n-p>
   </n-thing>
 </template>
 

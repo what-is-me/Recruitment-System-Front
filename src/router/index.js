@@ -32,6 +32,7 @@ const routes = [
     component: () => import('../views/CompanyMainView.vue'),
     children: companyRoute,
   },
+
 ]
 
 const router = createRouter({

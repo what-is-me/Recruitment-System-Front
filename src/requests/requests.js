@@ -68,3 +68,109 @@ export function postEmployeeProfile(profile) {
     data: profile
   })
 }
+
+export function getCompanyProfile() {
+  return require({
+    url: '/api/company/profile',
+    method: 'get',
+  })
+}
+
+export function postCompanyProfile(profile) {
+  return require({
+    url: '/api/company/profile',
+    method: 'post',
+    data: profile
+  })
+}
+
+export function findAllJobs() {
+  return service({
+    url: '/api/jobs',
+    method: 'get'
+  })
+}
+
+export function findJobs(param) {
+  return service({
+    url: '/api/jobs',
+    method: 'post',
+    data: param
+  })
+}
+
+export function submitResume(jid) {
+  return require({
+    url: '/api/employee/submit',
+    method: 'post',
+    params: {jid: jid}
+  })
+}
+
+export function starToggle(jid) {
+  return require({
+    url: '/api/employee/star-toggle',
+    method: 'get',
+    params: {jid: jid}
+  })
+}
+
+export function findCompany(uid) {
+  return service({
+    url: '/api/company/profile',
+    method: 'get',
+    params: {id: uid}
+  })
+}
+
+export function employeeSubmitted() {
+  return require({
+    url: '/api/employee/submitted',
+    method: 'get'
+  })
+}
+export function companySubmitted() {
+  return require({
+    url: '/api/company/submitted',
+    method: 'get'
+  })
+}
+export function getPassages() {
+  return service({
+    url: '/api/passage/all',
+    method: 'get'
+  })
+}
+
+export function getPassage(pid) {
+  return service({
+    url: `/api/passage/${pid}`,
+    method: 'get'
+  })
+}
+
+export function savePassage(passage, rpid) {
+  rpid = rpid ? rpid : null;
+  return require({
+    url: '/api/passage/new',
+    method: 'post',
+    data: passage,
+    params: {replyId: rpid}
+  })
+}
+
+export function saveJob(job) {
+  return require({
+    url: '/api/save-job',
+    method: 'post',
+    data: job
+  })
+}
+
+export function deleteJob(jid) {
+  return require({
+    url: '/api/delete-job',
+    method: 'delete',
+    params: {jid}
+  })
+}

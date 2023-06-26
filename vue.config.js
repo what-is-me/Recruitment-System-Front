@@ -4,7 +4,7 @@ module.exports = defineConfig({
   runtimeCompiler: true,
   devServer:{
     host:'0.0.0.0',
-    port:9999,
+    port:8848,
     open:true,
     proxy:{
       '/fapi':{
@@ -15,5 +15,11 @@ module.exports = defineConfig({
         }
       }
     }
-  }
+  },
+  chainWebpack: config =>{
+    config.plugin('html').tap(args => {
+      args[0].title = 'Find A Job';
+      return args;
+    })
+  },
 })

@@ -7,7 +7,7 @@ import VMdPreview from "@kangc/v-md-editor/lib/preview";
 
 export default defineComponent({
   name: "ProfileView",
-  components: {WorkComp,VMdPreview},
+  components: {WorkComp, VMdPreview},
   created() {
     getEmployeeProfile().then((res) => {
       const {msg, data} = res.data;
@@ -54,9 +54,12 @@ export default defineComponent({
         </n-grid-item>
         <n-grid-item span="2">
           <n-h1>{{ user.name }}</n-h1>
-          <n-text style="color:#999">{{ user.sex }}·{{ user.edu_background }}·期望{{
-              (user.want_price / 1000).toFixed(0)
-            }}K
+          <n-text style="color:#999">
+            {{ user.sex }}
+            ·
+            {{ user.edu_background }}
+            ·
+            期望{{ (user.want_price / 1000).toFixed(0) }}K
           </n-text>
           <br/>
           <n-icon size="18">
@@ -88,7 +91,9 @@ export default defineComponent({
                   fill="currentColor"></path>
             </svg>
           </n-icon>
-          <n-text underline>{{ user.email }}</n-text>
+          <n-text underline>
+            {{ user.email }}
+          </n-text>
           <br/>
           <n-icon>
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
@@ -110,7 +115,14 @@ export default defineComponent({
                   fill="currentColor"></path>
             </svg>
           </n-icon>
-          <n-text underline>{{ user.website }}</n-text>
+          <n-button
+              text
+              tag="a"
+              :href="user.website"
+              target="_blank"
+          >
+            <n-text underline>{{ user.website }}</n-text>
+          </n-button>
         </n-grid-item>
       </n-grid>
       <n-divider></n-divider>
@@ -206,7 +218,7 @@ export default defineComponent({
     </n-layout-content>
     <n-layout-sider>
       <n-h3>收藏的职业</n-h3>
-      <n-list bordered>
+      <n-list hoverable clickable bordered>
         <n-list-item v-for="jid in user.star" :key="jid">
           <work-comp :jid="jid"></work-comp>
         </n-list-item>
@@ -220,7 +232,8 @@ export default defineComponent({
   vertical-align: middle;
   margin-right: 6px;
 }
-.n-list{
+
+.n-list {
   margin-right: 40px;
 }
 </style>

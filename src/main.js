@@ -16,6 +16,7 @@ import hljs from 'highlight.js';
 VMdPreview.use(githubTheme, {
   Hljs: hljs,
 });
+window.ResizeObserver = undefined;
 createApp(App)
   .use(router)
   .use(naive)

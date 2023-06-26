@@ -1,6 +1,5 @@
 <script>
 import {defineComponent} from 'vue'
-import {tokenValue} from "@/requests/requests";
 import AutoMenu from "@/components/AutoMenu.vue";
 import {employeeRoute} from "@/router/employee-route";
 
@@ -10,7 +9,6 @@ export default defineComponent({
   data() {
     return {
       employeeRoute,
-      token: tokenValue,
     }
   }
 })
@@ -19,7 +17,9 @@ export default defineComponent({
 <template>
   <n-layout has-sider position="absolute">
     <n-layout-sider content-style="padding: 24px;">
-      <auto-menu :menu-list="employeeRoute"/>
+      <n-h3 style="text-align: center">我要找工作</n-h3>
+      <n-divider></n-divider>
+      <auto-menu :menu-list="employeeRoute" main-name="main"/>
     </n-layout-sider>
     <n-layout-content content-style="padding: 24px;">
       <router-view/>

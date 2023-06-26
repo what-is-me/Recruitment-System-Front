@@ -1,5 +1,8 @@
 <script>
-import {defineComponent} from 'vue'
+import {defineComponent, h} from 'vue'
+import {RouterLink} from 'vue-router'
+import {NIcon} from "naive-ui";
+import {ExitOutline} from '@vicons/ionicons5'
 
 export default defineComponent({
   name: "AutoMenu",
@@ -11,6 +14,20 @@ export default defineComponent({
     this.activeKey = curPath;
     this.menuList.forEach(item => {
       if (!item.invisible) this.list.push(item);
+    })
+    this.list.push({
+      label: () =>
+        h(
+          RouterLink,
+          {
+            to: {
+              path: '/'
+            }
+          },
+          {default: () => '切换用户'}
+        ),
+      key: 'exit',
+      icon: () => h(NIcon, null, {default: () => h(ExitOutline)}),
     })
   },
   data() {

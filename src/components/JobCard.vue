@@ -49,7 +49,7 @@ export default defineComponent({
           <n-tag v-for="tag in job.tags" :key="tag" type="info">{{ tag }}</n-tag>
         </n-space>
       </template>
-      <n-grid :cols="3">
+      <n-grid :cols="5">
         <n-gi style="text-align: left">
           <n-icon>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
@@ -63,7 +63,7 @@ export default defineComponent({
           </n-icon>
           {{ job.edu_background }}
         </n-gi>
-        <n-gi style="text-align: center">
+        <n-gi :span="3" style="text-align: center">
           <n-icon>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path

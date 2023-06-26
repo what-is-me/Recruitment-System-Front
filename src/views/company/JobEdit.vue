@@ -120,7 +120,7 @@ export default defineComponent({
     <n-form-item-row>
       <n-grid :cols="8">
         <n-gi>
-          <n-button type="primary" @click="submit" style="width: 100%">提交</n-button>
+          <n-button type="primary" @click="submit" style="width: 100%">保存</n-button>
         </n-gi>
         <n-gi :offset="6">
           <n-button v-if="jid" type="error" @click="callDelBox" style="width: 100%">删除</n-button>

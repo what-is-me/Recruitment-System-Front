@@ -57,16 +57,17 @@ export default defineComponent({
 </script>
 
 <template>
-  <n-layout has-sider style="position: relative;height: 100%;margin-right: 5%" :native-scrollbar="false">
-    <n-layout-header style="position: absolute;left: 0;top: 0;height: 10%;">
+  <n-layout has-sider style="position: relative;height: 100%;" :native-scrollbar="false">
+    <n-layout-header style="position: absolute;left: 0;top: 0;height: 10%;margin-right: 5%">
       <n-page-header title="公司详情">
         <template #extra>
-          <n-button type="primary" @click="submit">提交</n-button>
+          <n-button type="primary" @click="submit">保存</n-button>
         </template>
       </n-page-header>
     </n-layout-header>
-    <n-layout-content style="position: absolute;left: 0;top: 10%;height: 90%;width: 90%" :native-scrollbar="false">
+    <n-layout-content style="position: absolute;left: 0;top: 10%;height: 90%;width: 100%" :native-scrollbar="false">
       <n-form
+          style="margin-right: 10%"
           :label-width="80"
           :model="user"
       >

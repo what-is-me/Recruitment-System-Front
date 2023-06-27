@@ -1,6 +1,6 @@
 <script>
 import {defineComponent} from 'vue'
-import {getEmployeeProfile, getJob, starToggle, submitResume} from "@/requests/requests";
+import {getEmployeeProfile, getJob, starToggle, submitResume, viewJob} from "@/requests/requests";
 import {setProperties} from "@/utils/utils";
 import CompanyComp from "@/components/CompanyComp.vue";
 
@@ -43,6 +43,7 @@ export default defineComponent({
       }).catch((res) => {
         console.log(res)
       })
+      viewJob(this.$route.params.jid);
     },
     toggleStar() {
       starToggle(this.$route.params.jid).then((res) => {

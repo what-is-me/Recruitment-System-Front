@@ -5,6 +5,7 @@
 ## 项目后端
 
 [上海理工大学短学期——招聘系统::后端](https://github.com/what-is-me/Recruitment-System-Backend)
+[上海理工大学短学期——招聘系统::后端推荐系统](https://github.com/what-is-me/Recruitment-System-Backend-Recommend)
 
 ## 项目下载
 

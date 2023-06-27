@@ -1,6 +1,6 @@
 <script>
 import {defineComponent} from 'vue'
-import {findAllJobs, findJobs} from "@/requests/requests";
+import {findAllJobs, findJobs, getRecommendJobs} from "@/requests/requests";
 import JobSearchCard from "@/components/JobSearchCard.vue";
 
 export default defineComponent({
@@ -42,10 +42,17 @@ export default defineComponent({
   },
   methods: {
     init() {
-      findAllJobs().then((res) => {
-        const {data} = res.data;
-        this.list = data;
+      getRecommendJobs().then((res) => {
+        const {data} = res;
+        console.log(data);
+        this.list = data.jobs;
+      }).catch(() => {
+        findAllJobs().then((res) => {
+          const {data} = res.data;
+          this.list = data;
+        })
       })
+
     },
     search() {
       findJobs(this.queryParam).then((res) => {

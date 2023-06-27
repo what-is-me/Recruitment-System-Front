@@ -30,6 +30,7 @@ export default defineComponent({
         const {code, data, msg} = res.data;
         if (code === 200) {
           store.commit('setToken', data["token_value"]);
+          store.commit('setUid', this.user.uid);
           this.pushTo(`/${this.type}/`)
         } else {
           window.$message.error(msg);

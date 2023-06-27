@@ -129,12 +129,14 @@ export function employeeSubmitted() {
     method: 'get'
   })
 }
+
 export function companySubmitted() {
   return require({
     url: '/api/company/submitted',
     method: 'get'
   })
 }
+
 export function getPassages() {
   return service({
     url: '/api/passage/all',
@@ -172,5 +174,27 @@ export function deleteJob(jid) {
     url: '/api/delete-job',
     method: 'delete',
     params: {jid}
+  })
+}
+
+export function viewJob(jid) {
+  return require({
+    url: '/api/employee/view',
+    method: 'post',
+    params: {jid}
+  })
+}
+
+export function getRecommendJobs() {
+  let uid = store.getters.getUid;
+  if (!uid || uid === '') uid = '0'
+  return axios.create({
+    baseURL: 'http://10.100.164.30:8233',
+    headers: {
+      "ContentType": "application/json"
+    }
+  })({
+    url: `/recommend/${uid}`,
+    method: 'get'
   })
 }

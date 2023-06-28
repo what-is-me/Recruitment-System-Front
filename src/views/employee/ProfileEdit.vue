@@ -60,8 +60,8 @@ export default defineComponent({
       return {
         school: "",
         major: "",
-        begin: new Date(),
-        end: new Date(),
+        begin: 0,
+        end: 0,
         detail: ""
       };
     }
@@ -71,8 +71,8 @@ export default defineComponent({
         company: "",
         vocation: "",
         job_name: "",
-        begin: new Date(),
-        end: new Date(),
+        begin: 0,
+        end: 0,
         detail: ""
       };
     }
@@ -82,8 +82,8 @@ export default defineComponent({
         name: "",
         role: "",
         url: "",
-        begin: new Date(),
-        end: new Date(),
+        begin: 0,
+        end: 0,
         detail: ""
       };
     }
@@ -103,7 +103,7 @@ export default defineComponent({
         pic: "",
         name: "",
         tel: "",
-        sex: "",
+        sex: "男",
         address: "",
         birthday: 0,
         email: "",
